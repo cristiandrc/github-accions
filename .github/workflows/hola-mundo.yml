@@ -25,6 +25,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}-env" >> $GITHUB_ENV
+
+      - name: test env
+        run: echo $USERNAME
+
       # Runs a single command using the runners shell
       - name: Run hola mundo 
         run: node hola-mundo.js
